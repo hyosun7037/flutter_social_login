@@ -94,5 +94,7 @@
 	<string>flutter_naver_login</string>
 	<key>naverServiceAppUrlScheme</key>
 	<string>localhost:3000</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>

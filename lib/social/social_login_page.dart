@@ -11,14 +11,28 @@ class SocialLoginPage extends StatefulWidget {
 }
 
 class _SocialLoginPageState extends State<SocialLoginPage> {
-  Future<void> _loginButtonPressed() async {
-    String authCode = await AuthCodeClient.instance.request();
-    print(authCode);
+  void _kakaoButtonPressed() async {
+    try {
+      print('로그인시도');
+      OAuthToken token = await UserApi.instance.loginWithKakaoTalk();
+      print(token);
+      print('카카오톡 로그인 성공 ${token}');
+      try {
+        User user = await UserApi.instance.me();
+        print('회원번호 : ${user.id}, 닉네임 : ${user.kakaoAccount?.email}');
+      } catch (e) {
+        print('사용자 정보 요청 실패 ${e}');
+        return;
+      }
+    } catch (e) {
+      print(e);
+    }
   }
-  Future<void> _naverButtonPressed() async{
+  void _naverButtonPressed() async{
     NaverLoginResult res = await FlutterNaverLogin.logIn();
-        print(res);
+      print(res);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +46,7 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
           SizedBox(
             width: MediaQuery.of(context).size.width,
             child: CupertinoButton(
-              onPressed: _loginButtonPressed,
+              onPressed: _kakaoButtonPressed,
               color: Colors.yellow,
               child: const Text(
                 '카카오로 시작하기',
