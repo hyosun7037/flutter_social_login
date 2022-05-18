@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/social/login_success_page.dart';
 class SocialLoginPage extends StatefulWidget {
@@ -36,9 +35,11 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
   
 
   // 네이버 로그인
-  void _naverButtonPressed() async{
+  static naverLogin() async{
     NaverLoginResult res = await FlutterNaverLogin.logIn();
-      print('네이버 로그인 성공 ${res}');
+    NaverAccessToken token = await FlutterNaverLogin.currentAccessToken;
+      print('네이버 로그인 성공 $res');
+      print('네이버 로그인 토근 + $token');
   }
 
   @override
@@ -69,7 +70,7 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
             SizedBox(
             width: MediaQuery.of(context).size.width,
             child: CupertinoButton(
-              onPressed: _naverButtonPressed,
+              onPressed: naverLogin,
               color: Colors.green,
               child: const Text(
                 '네이버로 시작하기',

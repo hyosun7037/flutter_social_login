@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>KAKAO_APP_KEY</key>
-	<string>a6480419190f4a986e28128381e029f4</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -15,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>flutter_naver_login_example</string>
+	<string>flutter_naver_login</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -28,15 +26,27 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>flutternaverloginexample</string>
+			<string>kakaologin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakaoa6480419190f4a986e28128381e029f4</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>naverlogin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>flutternaverlogintest</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>KAKAO_APP_KEY</key>
+	<string>a6480419190f4a986e28128381e029f4</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>naversearchapp</string>
@@ -91,12 +101,12 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>naverConsumerKey</key>
-	<string>vjknPLgxhX</string>
+	<string>RuDcPHTfOppncR6LRq3G</string>
 	<key>naverConsumerSecret</key>
 	<string>vjknPLgxhX</string>
 	<key>naverServiceAppName</key>
 	<string>flutter_naver_login</string>
 	<key>naverServiceAppUrlScheme</key>
-	<string>localhost:3000</string>
+	<string>flutternaverlogintest</string>
 </dict>
 </plist>
