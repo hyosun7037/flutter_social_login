@@ -3,7 +3,10 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/social/Social_login_page.dart';
 
 void main() {
-  KakaoSdk.init(nativeAppKey: 'a6480419190f4a986e28128381e029f4');
+  KakaoSdk.init(
+    nativeAppKey: 'a6480419190f4a986e28128381e029f4', 
+    javaScriptAppKey: 'b4c7296efb916c1f10a7b4c980f61ead');
+  
   runApp(const MyApp());
 }
 

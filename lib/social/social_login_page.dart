@@ -3,34 +3,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 class SocialLoginPage extends StatefulWidget {
-  const SocialLoginPage({Key? key}) : super(key: key);
+const SocialLoginPage({Key? key}) : super(key: key);
 
   @override
   State<SocialLoginPage> createState() => _SocialLoginPageState();
-  
 }
 
 class _SocialLoginPageState extends State<SocialLoginPage> {
+  // 카카오 로그인
   void _kakaoButtonPressed() async {
     try {
-      print('로그인시도');
       OAuthToken token = await UserApi.instance.loginWithKakaoTalk();
-      print(token);
       print('카카오톡 로그인 성공 ${token}');
       try {
-        User user = await UserApi.instance.me();
-        print('회원번호 : ${user.id}, 닉네임 : ${user.kakaoAccount?.email}');
-      } catch (e) {
-        print('사용자 정보 요청 실패 ${e}');
-        return;
-      }
+          User user = await UserApi.instance.me();
+          print('사용자 정보 요청 성공'
+                '\n회원번호: ${user.id}'
+                '\n닉네임: ${user.kakaoAccount?.profile?.nickname}'
+                '\n이메일: ${user.kakaoAccount?.email}');
+        } catch (error) {
+          print('사용자 정보 요청 실패 $error');
+        }
     } catch (e) {
       print(e);
     }
   }
+  // 카카오 로그아웃
+  
+
+  // 네이버 로그인
   void _naverButtonPressed() async{
     NaverLoginResult res = await FlutterNaverLogin.logIn();
-      print(res);
+      print('네이버 로그인 성공 ${res}');
   }
 
   @override
