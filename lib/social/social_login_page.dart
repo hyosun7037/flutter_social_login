@@ -23,7 +23,7 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
       // 로그인 성공 후 페이지 이동
       try {
           User user = await UserApi.instance.me();
-          Get.to(const LoginSuccessPage(), arguments: user.kakaoAccount?.profile?.nickname);
+          Get.to(const LoginSuccessPage(), arguments: [user.kakaoAccount?.profile?.nickname, 'kakao']);
           logger.d(user);
           logger.d('카카오토큰 : $token');
         } catch (err) {
@@ -42,6 +42,7 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
       NaverAccessToken token = await FlutterNaverLogin.currentAccessToken;
       logger.d('네이버 로그인 성공 : $res');
       logger.d('네이버토큰 : $token');
+      Get.to(const LoginSuccessPage(), arguments: [res.account.name, 'naver']);
     } catch (err) {
       logger.d(err);
     }
