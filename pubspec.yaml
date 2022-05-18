@@ -46,6 +46,7 @@ dependencies:
   platform: 
   shared_preferences: 
   get: ^4.6.3
+  logger: 
 
 dev_dependencies:
   flutter_test:

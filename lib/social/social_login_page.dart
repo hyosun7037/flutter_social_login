@@ -4,42 +4,47 @@ import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:get/get.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/social/login_success_page.dart';
+import 'package:logger/logger.dart';
+
 class SocialLoginPage extends StatefulWidget {
 const SocialLoginPage({Key? key}) : super(key: key);
 
   @override
   State<SocialLoginPage> createState() => _SocialLoginPageState();
 }
+var logger = Logger();
 
 class _SocialLoginPageState extends State<SocialLoginPage> {
   // 카카오 로그인
   static kakaoLogin() async {
+    
     try {
       OAuthToken token = await UserApi.instance.loginWithKakaoTalk();
       // 로그인 성공 후 페이지 이동
       try {
           User user = await UserApi.instance.me();
           Get.to(const LoginSuccessPage(), arguments: user.kakaoAccount?.profile?.nickname);
-          print('사용자 정보 요청 성공'
-                '\n카카오톡 로그인 성공 ${token}'
-                '\n회원번호: ${user.id}'
-                '\n닉네임: ${user.kakaoAccount?.profile?.nickname}'
-                '\n이메일: ${user.kakaoAccount?.email}');
-        } catch (error) {
-          print('사용자 정보 요청 실패 $error');
+          logger.d(user);
+          logger.d('카카오토큰 : $token');
+        } catch (err) {
+          logger.d(err);
         }
-    } catch (e) {
-      print(e);
+    } catch (err) {
+      logger.d(err);
     }
   }
   
 
   // 네이버 로그인
   static naverLogin() async{
-    NaverLoginResult res = await FlutterNaverLogin.logIn();
-    NaverAccessToken token = await FlutterNaverLogin.currentAccessToken;
-      print('네이버 로그인 성공 $res');
-      print('네이버 로그인 토근 + $token');
+    try {
+      NaverLoginResult res = await FlutterNaverLogin.logIn();
+      NaverAccessToken token = await FlutterNaverLogin.currentAccessToken;
+      logger.d('네이버 로그인 성공 : $res');
+      logger.d('네이버토큰 : $token');
+    } catch (err) {
+      logger.d(err);
+    }
   }
 
   @override
@@ -69,10 +74,10 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
             const SizedBox(height: 10),
             SizedBox(
             width: MediaQuery.of(context).size.width,
-            child: CupertinoButton(
+            child: const CupertinoButton(
               onPressed: naverLogin,
               color: Colors.green,
-              child: const Text(
+              child: Text(
                 '네이버로 시작하기',
                 style: TextStyle(
                   fontSize: 15,
