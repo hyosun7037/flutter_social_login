@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_naver_login/flutter_naver_login.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+import 'package:kakao_test/social/login_success_page.dart';
 class SocialLoginPage extends StatefulWidget {
 const SocialLoginPage({Key? key}) : super(key: key);
 
@@ -11,13 +14,15 @@ const SocialLoginPage({Key? key}) : super(key: key);
 
 class _SocialLoginPageState extends State<SocialLoginPage> {
   // 카카오 로그인
-  void _kakaoButtonPressed() async {
+  static kakaoLogin() async {
     try {
       OAuthToken token = await UserApi.instance.loginWithKakaoTalk();
-      print('카카오톡 로그인 성공 ${token}');
+      // 로그인 성공 후 페이지 이동
       try {
           User user = await UserApi.instance.me();
+          Get.to(const LoginSuccessPage(), arguments: user.kakaoAccount?.profile?.nickname);
           print('사용자 정보 요청 성공'
+                '\n카카오톡 로그인 성공 ${token}'
                 '\n회원번호: ${user.id}'
                 '\n닉네임: ${user.kakaoAccount?.profile?.nickname}'
                 '\n이메일: ${user.kakaoAccount?.email}');
@@ -28,7 +33,6 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
       print(e);
     }
   }
-  // 카카오 로그아웃
   
 
   // 네이버 로그인
@@ -49,10 +53,10 @@ class _SocialLoginPageState extends State<SocialLoginPage> {
           children: <Widget>[
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            child: CupertinoButton(
-              onPressed: _kakaoButtonPressed,
+            child: const CupertinoButton(
+              onPressed: kakaoLogin,
               color: Colors.yellow,
-              child: const Text(
+              child: Text(
                 '카카오로 시작하기',
                 style: TextStyle(
                   fontSize: 15,
