@@ -5,6 +5,8 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/data/model/social_user.dart';
 import 'package:logger/logger.dart';
 
+import '../controller/social_login_controller.dart';
+
 class LoginSuccessPage extends StatelessWidget {
   const LoginSuccessPage({Key? key}) : super(key: key);
   // 로그아웃
@@ -26,20 +28,23 @@ class LoginSuccessPage extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    final SocialLoginController socialLoginController = Get.put(SocialLoginController());
     var user = Get.arguments[0].toString();
     print('테스트');
-
-    return Scaffold(
-      appBar: AppBar(title: const Text('환영합니다')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-          Text('${user}환영합니다.'),
-          const ElevatedButton(onPressed:logout, child: Text('로그아웃하기'),)
-          ],
-        ),
-      )
+    return GetBuilder(
+      init: SocialLoginController(),
+      builder: (_) => Scaffold(
+          appBar: AppBar(title: const Text('환영합니다')),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Text('${user},환영합니다.'),
+              const ElevatedButton(onPressed:logout, child: Text('로그아웃하기'),)
+              ],
+            ),
+          )
+        )
     );
   }
 }
