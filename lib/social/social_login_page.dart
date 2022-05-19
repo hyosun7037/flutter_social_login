@@ -37,7 +37,7 @@ const SocialLoginPage({Key? key}) : super(key: key);
             SizedBox(
             width: MediaQuery.of(context).size.width,
             child: CupertinoButton(
-              onPressed: (){},
+              onPressed: () => socialLoginController.naverLogin(),
               color: Colors.green,
               child: const Text(
                 '네이버로 시작하기',

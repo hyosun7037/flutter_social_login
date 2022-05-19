@@ -1,4 +1,3 @@
-// model test
 class SocialUser{
   SocialUser({
     this.username = '',
