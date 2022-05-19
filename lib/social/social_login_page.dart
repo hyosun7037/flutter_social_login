@@ -13,9 +13,9 @@ const SocialLoginPage({Key? key}) : super(key: key);
       builder: (_) => 
         Scaffold(
         appBar: AppBar(
-        title: const Text('Social login')),
+        title: const Text('로그인테스트')),
         body: SafeArea(
-          minimum: const EdgeInsets.symmetric(horizontal: 16),
+          minimum: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -51,18 +51,35 @@ const SocialLoginPage({Key? key}) : super(key: key);
           const SizedBox(height: 10),
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            child: CupertinoButton(
-              onPressed: (){},
-              color: Colors.black,
-              child: const Text(
-                '애플로 시작하기',
-                style: TextStyle(
-                  fontSize: 15,
-                  color:Colors.white
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CupertinoButton(
+                onPressed: (){},
+                child: const Text(
+                  '이메일로 회원가입',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color:Colors.black
+                    ),
                   ),
                 ),
-              ),
+                SizedBox(child: Text('|', style: TextStyle(fontSize: 16),),),
+                CupertinoButton(
+                onPressed: (){},
+                child: const Text(
+                  '이메일로 로그인',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color:Colors.black
+                    ),
+                  ),
+                ),
+              ],
             ),
+            ),
+            
           ],
         ),
       ),
