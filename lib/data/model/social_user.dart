@@ -5,6 +5,8 @@ part 'social_user.g.dart';
 
 @freezed
 class SocialUser with _$SocialUser {
+  static var obs;
+
     factory SocialUser({
         required String loginType,
         required String userName,

@@ -1,47 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:get/get.dart';
-import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-import 'package:kakao_test/data/model/social_user.dart';
+import 'package:kakao_test/pages/main_page.dart';
 import 'package:logger/logger.dart';
 
 import '../controller/social_login_controller.dart';
 
 class LoginSuccessPage extends StatelessWidget {
-  const LoginSuccessPage({Key? key}) : super(key: key);
-  // 로그아웃
-  static logout() async {
-    var socialCate = Get.arguments[1].toString();
-    var logger = Logger();
-    try {
-      if(socialCate == 'kakao'){
-         UserIdResponse kakaoLogout = await UserApi.instance.logout();
-        logger.d(kakaoLogout);
-      }else if(socialCate == 'naver'){
-        var naverLogout = await FlutterNaverLogin.logOutAndDeleteToken();
-        logger.d(naverLogout);
-      }
-      Get.back();
-    } catch (err) {
-      logger.d(err);
-    }
-  }
+final SocialLoginController socialLoginController = Get.put(SocialLoginController());
+var logger = Logger();
+  
   @override
   Widget build(BuildContext context) {
-    final SocialLoginController socialLoginController = Get.put(SocialLoginController());
-    var user = Get.arguments[0].toString();
     print('테스트');
     return GetBuilder(
       init: SocialLoginController(),
       builder: (_) => Scaffold(
-          appBar: AppBar(title: const Text('환영합니다')),
+          appBar: AppBar(title: const Text('환영합니다'), 
+          actions: [IconButton(onPressed: socialLoginController.logout, icon:Icon(Icons.logout))]),
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                Expanded(
                  child: Align(alignment: FractionalOffset.bottomCenter,
-                 child: Text('${user}님! 환영합니다.', 
+                 child: Text('${socialLoginController.socialUser?.userName}님! 환영합니다.', 
                  style: TextStyle(fontSize: 20),),)),
                Expanded(
                  child:Align(
@@ -50,8 +32,8 @@ class LoginSuccessPage extends StatelessWidget {
                    ElevatedButton(
                   style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 70)),
-                  onPressed:logout, 
-                  child: Text('서비스 시작하기', style: TextStyle(fontSize: 20))))
+                  onPressed:() => Get.to(MainPage()), 
+                  child: Text('서비스 시작하기', style: TextStyle(fontSize: 18))))
                )
               ],
             ),
