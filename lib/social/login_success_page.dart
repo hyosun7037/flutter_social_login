@@ -39,8 +39,20 @@ class LoginSuccessPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Text('${user},환영합니다.'),
-              const ElevatedButton(onPressed:logout, child: Text('로그아웃하기'),)
+               Expanded(
+                 child: Align(alignment: FractionalOffset.bottomCenter,
+                 child: Text('${user}님! 환영합니다.', 
+                 style: TextStyle(fontSize: 20),),)),
+               Expanded(
+                 child:Align(
+                   alignment: FractionalOffset.bottomCenter,
+                   child:
+                   ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 70)),
+                  onPressed:logout, 
+                  child: Text('서비스 시작하기', style: TextStyle(fontSize: 20))))
+               )
               ],
             ),
           )
