@@ -3,7 +3,7 @@ PODS:
   - flutter_naver_login (0.0.1):
     - Flutter
     - naveridlogin-sdk-ios (~> 4.1.0)
-  - flutter_web_auth (0.2.4):
+  - flutter_web_auth (0.4.1):
     - Flutter
   - kakao_flutter_sdk_common (1.1.1):
     - Flutter
@@ -47,7 +47,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_naver_login: 1dbf6d21aae5235cdf76a28ac79cf6871899282f
-  flutter_web_auth: b7465086188ce4413d7e8b23622583784b9007a7
+  flutter_web_auth: 09a0abd245f1a07a3ff4dcf1247a048d89ee12a9
   kakao_flutter_sdk_common: 2e35ad2f0c691c76456720632fe5067c8352d1a9
   naveridlogin-sdk-ios: b9d7c20677981177ed994ecb1c8c2b49f223277d
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62

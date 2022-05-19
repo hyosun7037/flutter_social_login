@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:get/get.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+import 'package:kakao_test/data/model/social_user.dart';
 import 'package:logger/logger.dart';
 
 class LoginSuccessPage extends StatelessWidget {
@@ -26,14 +27,15 @@ class LoginSuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var user = Get.arguments[0].toString();
-    
+    print('테스트');
+
     return Scaffold(
       appBar: AppBar(title: const Text('환영합니다')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          Text('$user 환영합니다.'),
+          Text('${user}환영합니다.'),
           const ElevatedButton(onPressed:logout, child: Text('로그아웃하기'),)
           ],
         ),
