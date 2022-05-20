@@ -15,7 +15,7 @@ class SocialLoginController extends GetxController{
 
   Future kakaologin() async{
   try {
-      OAuthToken token = await UserApi.instance.loginWithKakaoTalk();
+      OAuthToken token = await UserApi.instance.loginWithKakaoAccount();
       try {
           User user = await UserApi.instance.me();
           Get.to(LoginSuccessPage(), arguments: [user.kakaoAccount?.profile?.nickname.toString(), 'kakao']);
