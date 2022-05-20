@@ -12,8 +12,6 @@ const SocialLoginPage({Key? key}) : super(key: key);
       init: SocialLoginController(),
       builder: (_) => 
         Scaffold(
-        appBar: AppBar(
-        title: const Text('로그인테스트')),
         body: SafeArea(
           minimum: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
