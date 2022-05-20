@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/controller/social_login_controller.dart';
 
+import '../pages/signin_page.dart';
+
 class SocialLoginPage extends StatelessWidget {
 const SocialLoginPage({Key? key}) : super(key: key);
  @override
@@ -54,14 +56,12 @@ const SocialLoginPage({Key? key}) : super(key: key);
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CupertinoButton(
-                onPressed: (){},
-                child: const Text(
-                  '이메일로 회원가입',
+                onPressed: () => Get.to(SigninPage()),
+                  child: Text('이메일로 회원가입',
                   style: TextStyle(
                     fontSize: 15,
                     color:Colors.black
-                    ),
-                  ),
+                    ),),
                 ),
                 SizedBox(child: Text('|', style: TextStyle(fontSize: 16),),),
                 CupertinoButton(

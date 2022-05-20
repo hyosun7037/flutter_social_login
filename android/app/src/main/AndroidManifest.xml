@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kakao_test">
+    package="com.flutter.kakaoTest">
    <application
         android:label="kakao_test"
         android:name="${applicationName}"

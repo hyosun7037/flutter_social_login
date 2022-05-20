@@ -50,6 +50,7 @@ dependencies:
   freezed_annotation:
   retrofit:
   dio:
+  flutter_svg: ^1.0.3
 
 
 dev_dependencies:
