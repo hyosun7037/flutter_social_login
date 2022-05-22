@@ -18,11 +18,42 @@ class SocialLoginController extends GetxController{
       OAuthToken token = await UserApi.instance.loginWithKakaoAccount();
       try {
           User user = await UserApi.instance.me();
+          // 추가 동의항목 
+          List<String> scopes = [];
+          if (user.kakaoAccount?.emailNeedsAgreement == true) {
+            scopes.add('account_email');
+          };
+          if (scopes.length > 0) {
+          print('사용자에게 추가 동의 받아야 하는 항목이 있습니다');
+          };
+          OAuthToken token;
+          try {
+            token = await UserApi.instance.loginWithNewScopes(scopes);
+            print('현재 사용자가 동의한 동의 항목: ${token.scopes}');
+          } catch (error) {
+            print('추가 동의 요청 실패 $error');
+            return;
+          }
+
+          // 사용자 정보 재요청
+          try {
+            User user = await UserApi.instance.me();
+            print('사용자 정보 요청 성공'
+                '\n회원번호: ${user.id}'
+                '\n닉네임: ${user.kakaoAccount?.profile?.nickname}'
+                '\전화번호: ${user.kakaoAccount?.phoneNumber}'
+                '\n이메일: ${user.kakaoAccount?.email}'
+                );
+          } catch (error) {
+            print('사용자 정보 요청 실패 $error');
+          };
           Get.to(LoginSuccessPage(), arguments: [user.kakaoAccount?.profile?.nickname.toString(), 'kakao']);
           socialUser = SocialUser(
             loginType:'kakao', 
-            userName: user.kakaoAccount!.profile!.nickname.toString(), 
-            email: user.kakaoAccount!.email.toString());
+            loginKey: user.id.toString(),
+            nickName: user.kakaoAccount?.profile?.nickname.toString(), 
+            tel: user.kakaoAccount?.phoneNumber.toString(),
+            email: user.kakaoAccount?.email.toString());
           print('카카오로그인 성공');
           logger.d(socialUser);
           logger.d(token);
@@ -43,11 +74,13 @@ class SocialLoginController extends GetxController{
       logger.d('네이버토큰 : $token');
       socialUser = SocialUser(
         loginType: "naver", 
-        userName: res.account.name, 
+        loginKey: res.account.id,
+        nickName: res.account.name, 
+        tel: res.account.mobile,
         email: res.account.email);
       print('네이버 아이디 저장 성공');
       logger.d(socialUser);
-      Get.to(LoginSuccessPage(), arguments: [socialUser?.userName, 'naver']);
+      Get.to(LoginSuccessPage(), arguments: [socialUser?.nickName, 'naver']);
     } catch (err) {
       logger.d(err);
     }

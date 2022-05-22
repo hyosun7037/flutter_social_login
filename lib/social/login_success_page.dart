@@ -23,7 +23,7 @@ var logger = Logger();
               children: [
                Expanded(
                  child: Align(alignment: FractionalOffset.bottomCenter,
-                 child: Text('${socialLoginController.socialUser?.userName}님! 환영합니다.', 
+                 child: Text('${socialLoginController.socialUser?.nickName}님! 환영합니다.', 
                  style: TextStyle(fontSize: 20),),)),
                Expanded(
                  child:Align(

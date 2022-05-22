@@ -19,6 +19,7 @@ class SigninPage extends StatelessWidget {
         ),
       backgroundColor: Color(0xffffffff),
       body: Form(
+        key: _formKey,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,6 +37,14 @@ class SigninPage extends StatelessWidget {
                 label: '이메일',
                 onSaved: (val){},
                 validator: (val){
+                  if(val.toString().length < 1){
+                    return '이메일을 입력해주세요';
+                  }
+                  if(!RegExp(
+                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                      .hasMatch(val)){
+                    return '잘못된 이메일 형식입니다.';
+                  }
                   return null;
                 }),
               ),
@@ -46,6 +55,12 @@ class SigninPage extends StatelessWidget {
                 label: '비밀번호',
                 onSaved: (val){},
                 validator: (val){
+                  if(val.toString().length < 1){
+                    return '비밀번호를 입력해주세요.';
+                  }
+                  if(val.toString().length < 8){
+                    return '비밀번호는 8자리 이상 입력해주세요';
+                  }
                   return null;
                 }),
               ),
@@ -56,7 +71,11 @@ class SigninPage extends StatelessWidget {
                ElevatedButton(
               style: ElevatedButton.styleFrom(
               minimumSize: Size(double.infinity, 70)),
-              onPressed:(){}, 
+              onPressed:() async{
+                if(this._formKey.currentState!.validate()){
+                  Get.snackbar('저장완료', '다음 버튼을 눌러주세요!');
+                };
+              }, 
               child: Text('다음', style: TextStyle(fontSize: 18))))
             ),
             ],

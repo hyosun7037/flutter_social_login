@@ -21,8 +21,10 @@ SocialUser _$SocialUserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SocialUser {
   String get loginType => throw _privateConstructorUsedError;
-  String get userName => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
+  String get loginKey => throw _privateConstructorUsedError;
+  String? get nickName => throw _privateConstructorUsedError;
+  String? get tel => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,12 @@ abstract class $SocialUserCopyWith<$Res> {
   factory $SocialUserCopyWith(
           SocialUser value, $Res Function(SocialUser) then) =
       _$SocialUserCopyWithImpl<$Res>;
-  $Res call({String loginType, String userName, String email});
+  $Res call(
+      {String loginType,
+      String loginKey,
+      String? nickName,
+      String? tel,
+      String? email});
 }
 
 /// @nodoc
@@ -49,7 +56,9 @@ class _$SocialUserCopyWithImpl<$Res> implements $SocialUserCopyWith<$Res> {
   @override
   $Res call({
     Object? loginType = freezed,
-    Object? userName = freezed,
+    Object? loginKey = freezed,
+    Object? nickName = freezed,
+    Object? tel = freezed,
     Object? email = freezed,
   }) {
     return _then(_value.copyWith(
@@ -57,14 +66,22 @@ class _$SocialUserCopyWithImpl<$Res> implements $SocialUserCopyWith<$Res> {
           ? _value.loginType
           : loginType // ignore: cast_nullable_to_non_nullable
               as String,
-      userName: userName == freezed
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      loginKey: loginKey == freezed
+          ? _value.loginKey
+          : loginKey // ignore: cast_nullable_to_non_nullable
               as String,
+      nickName: nickName == freezed
+          ? _value.nickName
+          : nickName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tel: tel == freezed
+          ? _value.tel
+          : tel // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -76,7 +93,12 @@ abstract class _$$_SocialUserCopyWith<$Res>
           _$_SocialUser value, $Res Function(_$_SocialUser) then) =
       __$$_SocialUserCopyWithImpl<$Res>;
   @override
-  $Res call({String loginType, String userName, String email});
+  $Res call(
+      {String loginType,
+      String loginKey,
+      String? nickName,
+      String? tel,
+      String? email});
 }
 
 /// @nodoc
@@ -92,7 +114,9 @@ class __$$_SocialUserCopyWithImpl<$Res> extends _$SocialUserCopyWithImpl<$Res>
   @override
   $Res call({
     Object? loginType = freezed,
-    Object? userName = freezed,
+    Object? loginKey = freezed,
+    Object? nickName = freezed,
+    Object? tel = freezed,
     Object? email = freezed,
   }) {
     return _then(_$_SocialUser(
@@ -100,14 +124,22 @@ class __$$_SocialUserCopyWithImpl<$Res> extends _$SocialUserCopyWithImpl<$Res>
           ? _value.loginType
           : loginType // ignore: cast_nullable_to_non_nullable
               as String,
-      userName: userName == freezed
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      loginKey: loginKey == freezed
+          ? _value.loginKey
+          : loginKey // ignore: cast_nullable_to_non_nullable
               as String,
+      nickName: nickName == freezed
+          ? _value.nickName
+          : nickName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tel: tel == freezed
+          ? _value.tel
+          : tel // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -116,7 +148,11 @@ class __$$_SocialUserCopyWithImpl<$Res> extends _$SocialUserCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SocialUser implements _SocialUser {
   _$_SocialUser(
-      {required this.loginType, required this.userName, required this.email});
+      {required this.loginType,
+      required this.loginKey,
+      this.nickName,
+      this.tel,
+      this.email});
 
   factory _$_SocialUser.fromJson(Map<String, dynamic> json) =>
       _$$_SocialUserFromJson(json);
@@ -124,13 +160,17 @@ class _$_SocialUser implements _SocialUser {
   @override
   final String loginType;
   @override
-  final String userName;
+  final String loginKey;
   @override
-  final String email;
+  final String? nickName;
+  @override
+  final String? tel;
+  @override
+  final String? email;
 
   @override
   String toString() {
-    return 'SocialUser(loginType: $loginType, userName: $userName, email: $email)';
+    return 'SocialUser(loginType: $loginType, loginKey: $loginKey, nickName: $nickName, tel: $tel, email: $email)';
   }
 
   @override
@@ -139,7 +179,9 @@ class _$_SocialUser implements _SocialUser {
         (other.runtimeType == runtimeType &&
             other is _$_SocialUser &&
             const DeepCollectionEquality().equals(other.loginType, loginType) &&
-            const DeepCollectionEquality().equals(other.userName, userName) &&
+            const DeepCollectionEquality().equals(other.loginKey, loginKey) &&
+            const DeepCollectionEquality().equals(other.nickName, nickName) &&
+            const DeepCollectionEquality().equals(other.tel, tel) &&
             const DeepCollectionEquality().equals(other.email, email));
   }
 
@@ -148,7 +190,9 @@ class _$_SocialUser implements _SocialUser {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(loginType),
-      const DeepCollectionEquality().hash(userName),
+      const DeepCollectionEquality().hash(loginKey),
+      const DeepCollectionEquality().hash(nickName),
+      const DeepCollectionEquality().hash(tel),
       const DeepCollectionEquality().hash(email));
 
   @JsonKey(ignore: true)
@@ -165,8 +209,10 @@ class _$_SocialUser implements _SocialUser {
 abstract class _SocialUser implements SocialUser {
   factory _SocialUser(
       {required final String loginType,
-      required final String userName,
-      required final String email}) = _$_SocialUser;
+      required final String loginKey,
+      final String? nickName,
+      final String? tel,
+      final String? email}) = _$_SocialUser;
 
   factory _SocialUser.fromJson(Map<String, dynamic> json) =
       _$_SocialUser.fromJson;
@@ -174,9 +220,13 @@ abstract class _SocialUser implements SocialUser {
   @override
   String get loginType => throw _privateConstructorUsedError;
   @override
-  String get userName => throw _privateConstructorUsedError;
+  String get loginKey => throw _privateConstructorUsedError;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String? get nickName => throw _privateConstructorUsedError;
+  @override
+  String? get tel => throw _privateConstructorUsedError;
+  @override
+  String? get email => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_SocialUserCopyWith<_$_SocialUser> get copyWith =>
