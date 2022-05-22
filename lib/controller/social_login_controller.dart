@@ -2,6 +2,7 @@ import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:get/get.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/data/model/social_user.dart';
+import 'package:kakao_test/repository/user_repository.dart';
 import 'package:kakao_test/social/login_success_page.dart';
 import 'package:logger/logger.dart';
 
@@ -47,18 +48,19 @@ class SocialLoginController extends GetxController{
           } catch (error) {
             print('사용자 정보 요청 실패 $error');
           };
-          Get.to(LoginSuccessPage(), arguments: [user.kakaoAccount?.profile?.nickname.toString(), 'kakao']);
           socialUser = SocialUser(
             loginType:'kakao', 
+            accessToken: token.accessToken.toString(),
             loginKey: user.id.toString(),
             nickName: user.kakaoAccount?.profile?.nickname.toString(), 
             tel: user.kakaoAccount?.phoneNumber.toString(),
             email: user.kakaoAccount?.email.toString());
           print('카카오로그인 성공');
-          logger.d(socialUser);
-          logger.d(token);
+          // 로그인
+          UserRepository.getInstance.socialLogin(socialUser!
+          ).then((value) => logger.d(value.body));
+          Get.to(LoginSuccessPage(), arguments: [user.kakaoAccount?.profile?.nickname.toString(), 'kakao']);
             return socialUser;
-          
         } catch (err) {
           logger.d(err);
         }
@@ -73,6 +75,7 @@ class SocialLoginController extends GetxController{
       NaverAccessToken token = await FlutterNaverLogin.currentAccessToken;
       logger.d('네이버토큰 : $token');
       socialUser = SocialUser(
+        accessToken: token.accessToken.toString(),
         loginType: "naver", 
         loginKey: res.account.id,
         nickName: res.account.name, 

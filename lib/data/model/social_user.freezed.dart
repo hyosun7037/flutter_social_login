@@ -25,6 +25,7 @@ mixin _$SocialUser {
   String? get nickName => throw _privateConstructorUsedError;
   String? get tel => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
+  String get accessToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,8 @@ abstract class $SocialUserCopyWith<$Res> {
       String loginKey,
       String? nickName,
       String? tel,
-      String? email});
+      String? email,
+      String accessToken});
 }
 
 /// @nodoc
@@ -60,6 +62,7 @@ class _$SocialUserCopyWithImpl<$Res> implements $SocialUserCopyWith<$Res> {
     Object? nickName = freezed,
     Object? tel = freezed,
     Object? email = freezed,
+    Object? accessToken = freezed,
   }) {
     return _then(_value.copyWith(
       loginType: loginType == freezed
@@ -82,6 +85,10 @@ class _$SocialUserCopyWithImpl<$Res> implements $SocialUserCopyWith<$Res> {
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      accessToken: accessToken == freezed
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -98,7 +105,8 @@ abstract class _$$_SocialUserCopyWith<$Res>
       String loginKey,
       String? nickName,
       String? tel,
-      String? email});
+      String? email,
+      String accessToken});
 }
 
 /// @nodoc
@@ -118,6 +126,7 @@ class __$$_SocialUserCopyWithImpl<$Res> extends _$SocialUserCopyWithImpl<$Res>
     Object? nickName = freezed,
     Object? tel = freezed,
     Object? email = freezed,
+    Object? accessToken = freezed,
   }) {
     return _then(_$_SocialUser(
       loginType: loginType == freezed
@@ -140,6 +149,10 @@ class __$$_SocialUserCopyWithImpl<$Res> extends _$SocialUserCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      accessToken: accessToken == freezed
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -152,7 +165,8 @@ class _$_SocialUser implements _SocialUser {
       required this.loginKey,
       this.nickName,
       this.tel,
-      this.email});
+      this.email,
+      required this.accessToken});
 
   factory _$_SocialUser.fromJson(Map<String, dynamic> json) =>
       _$$_SocialUserFromJson(json);
@@ -167,10 +181,12 @@ class _$_SocialUser implements _SocialUser {
   final String? tel;
   @override
   final String? email;
+  @override
+  final String accessToken;
 
   @override
   String toString() {
-    return 'SocialUser(loginType: $loginType, loginKey: $loginKey, nickName: $nickName, tel: $tel, email: $email)';
+    return 'SocialUser(loginType: $loginType, loginKey: $loginKey, nickName: $nickName, tel: $tel, email: $email, accessToken: $accessToken)';
   }
 
   @override
@@ -182,7 +198,9 @@ class _$_SocialUser implements _SocialUser {
             const DeepCollectionEquality().equals(other.loginKey, loginKey) &&
             const DeepCollectionEquality().equals(other.nickName, nickName) &&
             const DeepCollectionEquality().equals(other.tel, tel) &&
-            const DeepCollectionEquality().equals(other.email, email));
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality()
+                .equals(other.accessToken, accessToken));
   }
 
   @JsonKey(ignore: true)
@@ -193,7 +211,8 @@ class _$_SocialUser implements _SocialUser {
       const DeepCollectionEquality().hash(loginKey),
       const DeepCollectionEquality().hash(nickName),
       const DeepCollectionEquality().hash(tel),
-      const DeepCollectionEquality().hash(email));
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(accessToken));
 
   @JsonKey(ignore: true)
   @override
@@ -212,7 +231,8 @@ abstract class _SocialUser implements SocialUser {
       required final String loginKey,
       final String? nickName,
       final String? tel,
-      final String? email}) = _$_SocialUser;
+      final String? email,
+      required final String accessToken}) = _$_SocialUser;
 
   factory _SocialUser.fromJson(Map<String, dynamic> json) =
       _$_SocialUser.fromJson;
@@ -227,6 +247,8 @@ abstract class _SocialUser implements SocialUser {
   String? get tel => throw _privateConstructorUsedError;
   @override
   String? get email => throw _privateConstructorUsedError;
+  @override
+  String get accessToken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_SocialUserCopyWith<_$_SocialUser> get copyWith =>

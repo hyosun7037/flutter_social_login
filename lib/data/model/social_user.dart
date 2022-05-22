@@ -14,6 +14,7 @@ class SocialUser with _$SocialUser {
         String? nickName,
         String? tel,
         String? email,
+        required String accessToken,
     }) = _SocialUser;
 
     factory SocialUser.fromJson(Map<String, dynamic> json) => _$SocialUserFromJson(json);

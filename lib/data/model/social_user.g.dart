@@ -13,6 +13,7 @@ _$_SocialUser _$$_SocialUserFromJson(Map<String, dynamic> json) =>
       nickName: json['nickName'] as String?,
       tel: json['tel'] as String?,
       email: json['email'] as String?,
+      accessToken: json['accessToken'] as String,
     );
 
 Map<String, dynamic> _$$_SocialUserToJson(_$_SocialUser instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_SocialUserToJson(_$_SocialUser instance) =>
       'nickName': instance.nickName,
       'tel': instance.tel,
       'email': instance.email,
+      'accessToken': instance.accessToken,
     };
