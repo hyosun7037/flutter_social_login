@@ -11,7 +11,6 @@ var logger = Logger();
   
   @override
   Widget build(BuildContext context) {
-    print('테스트');
     return GetBuilder(
       init: SocialLoginController(),
       builder: (_) => Scaffold(

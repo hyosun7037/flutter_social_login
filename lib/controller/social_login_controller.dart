@@ -5,7 +5,6 @@ import 'package:kakao_test/data/model/social_user.dart';
 import 'package:kakao_test/repository/user_repository.dart';
 import 'package:kakao_test/social/login_success_page.dart';
 import 'package:logger/logger.dart';
-
 import '../social/Social_login_page.dart';
 
 class SocialLoginController extends GetxController{ 

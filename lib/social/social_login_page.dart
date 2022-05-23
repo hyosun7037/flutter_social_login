@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kakao_test/app/modules/sign/page/sign_up_page.dart';
+import 'package:kakao_test/app/modules/sign/page/sign_up_terms_page.dart';
 import 'package:kakao_test/controller/social_login_controller.dart';
-
-import '../pages/signin_page.dart';
-
 class SocialLoginPage extends StatelessWidget {
 const SocialLoginPage({Key? key}) : super(key: key);
  @override
@@ -56,7 +55,7 @@ const SocialLoginPage({Key? key}) : super(key: key);
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CupertinoButton(
-                onPressed: () => Get.to(SigninPage()),
+                onPressed: () => Get.to(SignUpTermsPage()),
                   child: Text('이메일로 회원가입',
                   style: TextStyle(
                     fontSize: 15,
