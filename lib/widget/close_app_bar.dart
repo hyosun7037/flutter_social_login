@@ -35,7 +35,7 @@ class CloseAppbar extends StatelessWidget implements PreferredSizeWidget {
                           child: SizedBox(
                             width: 24,
                             height: 24,
-                            child: Icon(Icons.close, color: closeColor),
+                            child: Icon(Icons.arrow_back_ios_new, color: closeColor),
                           ),
                         ),
                       ],
@@ -52,7 +52,7 @@ class CloseAppbar extends StatelessWidget implements PreferredSizeWidget {
                                   Expanded(
                                     flex: (progressBarRatio! * 100).toInt(),
                                     child: Container(
-                                      decoration: const BoxDecoration(color: Colors.green),
+                                      decoration: const BoxDecoration(color: Colors.teal),
                                     ),
                                   ),
                                   Expanded(

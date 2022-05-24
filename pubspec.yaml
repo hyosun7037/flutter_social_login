@@ -95,14 +95,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: NotoSansKR
-      fonts:
-        - asset: assets/fonts/NotoSansKR-Black.otf
-        - asset: assets/fonts/NotoSansKR-Bold.otf
-        - asset: assets/fonts/NotoSansKR-Light.otf
-        - asset: assets/fonts/NotoSansKR-Medium.otf
-        - asset: assets/fonts/NotoSansKR-Regular.otf
+  # fonts:
+  #   - family: NotoSansKR
+  #     fonts:
+  #       - asset: assets/fonts/NotoSansKR-Black.otf
+  #       - asset: assets/fonts/NotoSansKR-Bold.otf
+  #       - asset: assets/fonts/NotoSansKR-Light.otf
+  #       - asset: assets/fonts/NotoSansKR-Medium.otf
+  #       - asset: assets/fonts/NotoSansKR-Regular.otf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

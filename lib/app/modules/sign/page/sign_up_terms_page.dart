@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:kakao_test/app/modules/sign/page/sign_up_page.dart';
+import 'package:kakao_test/app/modules/sign/page/sign_%08up_page.dart';
 import 'package:kakao_test/widget/close_app_bar.dart';
 
 class SignUpTermsPage extends StatelessWidget {
@@ -29,8 +29,8 @@ class SignUpTermsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                 SizedBox(height: constraints.minHeight + 30),
-                Text('마더스에 오신 걸 환영합니다.', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 23, color:Colors.green)),
-                SizedBox(height: constraints.minHeight + 10),
+                Text('마더스에 오신 걸 환영합니다.', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25, color:Colors.teal)),
+                SizedBox(height: constraints.minHeight + 5),
                 Text('나를 위한 맞춤 케어', style: TextStyle(fontWeight: FontWeight.w100, fontSize: 20, color:Colors.lightGreen)),
                 Expanded(
                  child:Align(
@@ -38,7 +38,7 @@ class SignUpTermsPage extends StatelessWidget {
                    child:
                    ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
+                    primary: Colors.teal,
                   minimumSize: Size(double.infinity, 60)),
                   onPressed:() => Get.to(SignUpPage()), 
                   child: Text('본인인증', style: TextStyle(fontSize: 18))))
