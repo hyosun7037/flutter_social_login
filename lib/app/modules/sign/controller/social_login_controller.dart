@@ -4,8 +4,9 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/app/modules/sign/model/social_user.dart';
 import 'package:kakao_test/app/modules/sign/page/login_success_page.dart';
 import 'package:kakao_test/app/modules/sign/repository/user_repository.dart';
-import 'package:kakao_test/social/social_login_page.dart';
 import 'package:logger/logger.dart';
+
+import '../page/social_login_page.dart';
 
 class SocialLoginController extends GetxController{ 
   static SocialLoginController get to => Get.find();

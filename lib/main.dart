@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/firebase_options.dart';
-import 'package:kakao_test/social/social_login_page.dart';
+import 'package:kakao_test/app/modules/sign/page/social_login_page.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

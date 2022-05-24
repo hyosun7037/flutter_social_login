@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/controller/social_login_controller.dart';
 import 'package:kakao_test/app/widget/cirble_btn.dart';
+import 'package:kakao_test/app/widget/close_app_bar.dart';
 import 'package:kakao_test/pages/first_page.dart';
-import 'package:kakao_test/widget/close_app_bar.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key:key);

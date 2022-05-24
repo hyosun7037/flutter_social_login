@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:kakao_test/app/modules/sign/page/sign_%08up_page.dart';
-import 'package:kakao_test/widget/close_app_bar.dart';
+
+import '../../../widget/close_app_bar.dart';
 
 class SignUpTermsPage extends StatelessWidget {
   const SignUpTermsPage({Key? key}) : super(key: key);
@@ -40,7 +40,7 @@ class SignUpTermsPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     primary: Colors.teal,
                   minimumSize: Size(double.infinity, 60)),
-                  onPressed:() => Get.to(SignUpPage()), 
+                  onPressed:() => Get.to(SignUpTermsPage()), 
                   child: Text('본인인증', style: TextStyle(fontSize: 18))))
                )
               ]),
