@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../social/login_success_page.dart';
 import 'first_page.dart';
 
 class MainPage extends StatefulWidget {

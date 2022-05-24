@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
-import '../../controller/social_login_controller.dart';
+import '../modules/sign/controller/social_login_controller.dart';
 
 class CircleBtn extends StatelessWidget {
   const CircleBtn({

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kakao_test/app/modules/sign/controller/social_login_controller.dart';
 import 'package:kakao_test/app/widget/cirble_btn.dart';
-import 'package:kakao_test/controller/social_login_controller.dart';
 import 'package:kakao_test/pages/first_page.dart';
 import 'package:kakao_test/widget/close_app_bar.dart';
 

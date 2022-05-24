@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kakao_test/app/modules/sign/controller/social_login_controller.dart';
 import 'package:kakao_test/pages/main_page.dart';
 import 'package:logger/logger.dart';
-
-import '../controller/social_login_controller.dart';
 
 class LoginSuccessPage extends StatelessWidget {
 final SocialLoginController socialLoginController = Get.put(SocialLoginController());

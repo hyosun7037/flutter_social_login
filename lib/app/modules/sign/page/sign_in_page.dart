@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_up_terms_page.dart';
+import 'package:kakao_test/app/modules/sign/controller/social_login_controller.dart';
 import 'package:kakao_test/app/widget/cirble_btn.dart';
-import 'package:kakao_test/controller/social_login_controller.dart';
 import 'package:kakao_test/pages/first_page.dart';
 import 'package:kakao_test/widget/close_app_bar.dart';
 
@@ -29,18 +29,27 @@ class SignInPage extends StatelessWidget {
             child: Container(
               padding:const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 24.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 50),
                   Text.rich(
                     TextSpan(
-                      text: '마더스',
-                      style: TextStyle(fontSize: 20)
+                      children: [
+                        TextSpan(
+                          text: '마더스\n\n',
+                          style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600)
+                        ),
+                        TextSpan(
+                          text: '나를 위한 맞춤 케어 마더스',
+                          style: TextStyle(fontSize: 20)
+                        )
+                      ],
                     ),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: 50),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width - 70,
+                    width: MediaQuery.of(context).size.width - 50,
                     child: TextFormField(
                       decoration: InputDecoration(labelText: '이메일을 입력해주세요'),
                       keyboardType: TextInputType.emailAddress,
@@ -52,7 +61,7 @@ class SignInPage extends StatelessWidget {
                   )),
                   SizedBox(height: screenHeight * .025),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width - 70,
+                    width: MediaQuery.of(context).size.width - 50,
                     child: TextFormField(
                       decoration: InputDecoration(labelText: '비밀번호를 입력해주세요'),
                       obscureText: true,
@@ -77,6 +86,7 @@ class SignInPage extends StatelessWidget {
                          Get.to(FirstPage());
                        } catch (e) {
                          print(e.toString());
+                         return null;
                       }},
                     btnText: '마더스 시작하기',
                     btnColor: Colors.teal,

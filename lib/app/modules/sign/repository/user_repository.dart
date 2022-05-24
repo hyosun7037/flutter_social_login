@@ -1,5 +1,5 @@
 import 'package:get/get_connect.dart';
-import 'package:kakao_test/data/model/social_user.dart';
+import 'package:kakao_test/app/modules/sign/model/social_user.dart';
 
 class UserRepository extends GetConnect{
   static UserRepository? _instance;

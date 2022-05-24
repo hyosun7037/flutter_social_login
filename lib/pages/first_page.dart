@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kakao_test/controller/social_login_controller.dart';
+import 'package:kakao_test/app/modules/sign/controller/social_login_controller.dart';
 
 class FirstPage extends StatelessWidget {
   FirstPage({Key? key}) : super(key: key);
