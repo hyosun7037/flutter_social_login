@@ -9,7 +9,10 @@ class CircleBtn extends StatelessWidget {
     required this.onPressed,
     this.btnText = '',
     required this.btnColor,
-    required this.btnTextColor
+    required this.btnTextColor,
+    this.minHeight,
+    this.width,
+    this.padding,
   }) : super(key: key);
 
   final SocialLoginController? socialLoginController;
@@ -18,15 +21,19 @@ class CircleBtn extends StatelessWidget {
   final String btnText;
   final Color btnColor;
   final Color btnTextColor;
+  final double? minHeight;
+  final double? width;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-    width: MediaQuery.of(context).size.width,
+    width: (MediaQuery.of(context).size.width),
     child: CupertinoButton(
       borderRadius: BorderRadius.circular(borderRadius),
       onPressed: onPressed,
       color: btnColor,
+      padding: padding,
       child: Text(btnText,
         style: TextStyle(
           fontSize: 15,

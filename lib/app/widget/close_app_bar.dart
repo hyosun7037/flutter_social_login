@@ -9,7 +9,6 @@ class CloseAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   double? progressBarRatio;
   bool transparent;
-
   Color closeColor;
 
   @override
