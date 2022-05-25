@@ -4,9 +4,8 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/controller/social_login_controller.dart';
 import 'package:kakao_test/app/modules/sign/page/sigin_rec_first_page.dart';
-import 'package:kakao_test/app/widget/cirble_btn.dart';
+import 'package:kakao_test/app/widget/circle_btn.dart';
 import 'package:kakao_test/app/widget/close_app_bar.dart';
-import 'package:kakao_test/pages/first_page.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key:key);
@@ -21,7 +20,7 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
       appBar: CloseAppbar(
         backPress: () => Get.back(),
-        progressBarRatio: 2/6),
+        progressBarRatio: 2/5),
       backgroundColor: Color(0xffffffff),
       body: LayoutBuilder(
         builder: (context, constraints) {

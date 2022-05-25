@@ -4,6 +4,7 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:kakao_test/app/modules/sign/model/social_user.dart';
 import 'package:kakao_test/app/modules/sign/page/login_success_page.dart';
 import 'package:kakao_test/app/modules/sign/repository/user_repository.dart';
+import 'package:kakao_test/pages/main_page.dart';
 import 'package:logger/logger.dart';
 
 import '../page/social_login_page.dart';
@@ -59,7 +60,7 @@ class SocialLoginController extends GetxController{
           // 로그인
           UserRepository.getInstance.socialLogin(socialUser!
           ).then((value) => logger.d(value.body));
-          Get.to(LoginSuccessPage(), arguments: [user.kakaoAccount?.profile?.nickname.toString(), 'kakao']);
+          Get.to(MainPage(), arguments: [user.kakaoAccount?.profile?.nickname.toString(), 'kakao']);
             return socialUser;
         } catch (err) {
           logger.d(err);
@@ -83,7 +84,7 @@ class SocialLoginController extends GetxController{
         email: res.account.email);
       print('네이버 아이디 저장 성공');
       logger.d(socialUser);
-      Get.to(LoginSuccessPage(), arguments: [socialUser?.nickName, 'naver']);
+      Get.to(MainPage(), arguments: [socialUser?.nickName, 'naver']);
     } catch (err) {
       logger.d(err);
     }

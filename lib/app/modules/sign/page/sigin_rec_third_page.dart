@@ -1,26 +1,24 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kakao_test/app/modules/sign/page/sigin_rec_third_page.dart';
 import 'package:kakao_test/app/widget/circle_btn.dart';
 import 'package:kakao_test/app/widget/circle_tag.dart';
 import 'package:kakao_test/app/widget/close_app_bar.dart';
+import 'package:kakao_test/pages/main_page.dart';
 
-class SignInRecSecPage extends StatefulWidget {
-  const SignInRecSecPage({Key? key}) : super(key: key);
+class SignInRecThirdPage extends StatefulWidget {
+  const SignInRecThirdPage({Key? key}) : super(key: key);
   @override
-  State<SignInRecSecPage> createState() => _SignInRecSecPageState();
+  State<SignInRecThirdPage> createState() => _SignInRecThirdPageState();
 }
 
-class _SignInRecSecPageState extends State<SignInRecSecPage> {
+class _SignInRecThirdPageState extends State<SignInRecThirdPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CloseAppbar(
         backPress: () => Get.back(),
-        progressBarRatio: 4/5,
+        progressBarRatio: 5/5,
       ),
       body: SingleChildScrollView(
         padding:const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 24.0),
@@ -34,28 +32,51 @@ class _SignInRecSecPageState extends State<SignInRecSecPage> {
                 TextSpan(
                   children: <TextSpan>[
                     TextSpan(
-                      text: '통증 부위를 감안하여 \n맞춤 루틴을 소개해드려요\n\n',
+                      text: '사진을 통해 체형 분석해서 \n가장 개인화된 맞춤 운동을 추천해드려요\n\n',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)
                     ),
                     TextSpan(
-                      text: 'Q2',
+                      text: 'Q3',
                       style: TextStyle(fontSize: 25, fontWeight: FontWeight.w300, color: Colors.teal),
                     ),
                   ])
               ),
             ),
-            QueText(text: '현재 가장 통증을 느끼고 있는 부위를\n모두 선택해주세요'),
-            CircleTag(firstText: '골반', secondText: '손목', thirdText: '발목', shape: BoxShape.circle),
-            SizedBox(height: MediaQuery.of(context).size.width * 0.05),
-            CircleTag(firstText: '목', secondText: '어깨', thirdText: '허리', shape: BoxShape.circle),
-            SizedBox(height: MediaQuery.of(context).size.width * 0.05),
-            CircleTag(firstText: '무릎', secondText: '두통', thirdText: '없음', shape: BoxShape.circle),
-            SizedBox(height: MediaQuery.of(context).size.width * 0.1),
+            Text('\u{2757} 더 정확한 분석을 위해 체형을 파악할 수 있는 \n복장을 입은 사진을 업로드해주세요.', 
+            style: TextStyle(fontSize: 17)),
+            SizedBox(height: MediaQuery.of(context).size.width * 0.03),
+            CircleTag(
+              firstText: '신체 좌측 사진', 
+              secondText: '신체 정면 사진', 
+              thirdText: '신체 우측 사진',
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(20),
+              height: 130,
+              ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+            Text('마더스에 제공한 모든 정보를 안전하게 보관돼요.', 
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color:Colors.black54
+              )),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+            Text('\u{1F645} 이런사진은 안돼요', 
+            style: TextStyle(fontSize: 17)),
+            SizedBox(height: MediaQuery.of(context).size.width * 0.03),
+            CircleTag(
+              firstText: '신체 좌측 사진', 
+              secondText: '신체 정면 사진', 
+              thirdText: '신체 우측 사진',
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(20),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.07),
             CircleBtn(
-              onPressed: () => Get.to(SignInRecThirdPage()), 
+              onPressed: () => Get.to(MainPage()), 
               btnColor: Colors.teal, 
               btnTextColor: Colors.white,
-              btnText: '다음',
+              btnText: '완료하기',
               padding: EdgeInsets.all(20))
           ],
         ),

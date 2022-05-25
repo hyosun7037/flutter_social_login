@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_%08up_page.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_in_page.dart';
 import 'package:kakao_test/app/modules/sign/page/social_login_page.dart';
-import 'package:kakao_test/app/widget/cirble_btn.dart';
+import 'package:kakao_test/app/widget/circle_btn.dart';
 
 import '../../../widget/close_app_bar.dart';
 bool _isChecked = false;
@@ -15,7 +15,7 @@ class SignUpTermsPage extends StatelessWidget {
     return Scaffold(
       appBar: CloseAppbar(
         backPress: () => Get.to(SocialLoginPage()),
-        progressBarRatio: 1/6,
+        progressBarRatio: 1/5,
         ),
       body: LayoutBuilder(
         builder: (context, constraints) => GestureDetector(

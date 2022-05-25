@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/page/sigin_rec_sec_page%20copy.dart';
-import 'package:kakao_test/app/widget/cirble_btn.dart';
+import 'package:kakao_test/app/widget/circle_btn.dart';
 import 'package:kakao_test/app/widget/close_app_bar.dart';
 
 class SignInRecFirstPage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SignInRecFirstPageState extends State<SignInRecFirstPage> {
     return Scaffold(
       appBar: CloseAppbar(
         backPress: () => Get.back(),
-        progressBarRatio: 3/6,
+        progressBarRatio: 3/5,
       ),
       body: SingleChildScrollView(
         padding:const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 24.0),

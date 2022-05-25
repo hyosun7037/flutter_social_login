@@ -36,7 +36,7 @@ class CircleBtn extends StatelessWidget {
       padding: padding,
       child: Text(btnText,
         style: TextStyle(
-          fontSize: 15,
+          fontSize: 18,
           color:btnTextColor
           ),
         ),

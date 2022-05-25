@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_%08up_page.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_up_terms_page.dart';
-import 'package:kakao_test/app/widget/cirble_btn.dart';
+import 'package:kakao_test/app/widget/circle_btn.dart';
 import 'package:kakao_test/app/widget/close_app_bar.dart';
-import 'package:kakao_test/pages/first_page.dart';
+import 'package:kakao_test/pages/main_page.dart';
 import 'package:logger/logger.dart';
 
 class SignInPage extends StatelessWidget {
@@ -90,7 +90,7 @@ class SignInPage extends StatelessWidget {
                           }
                           UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
                           email: email, password: password);
-                           Get.to(FirstPage());
+                           Get.to(MainPage());
                          } on FirebaseAuthException catch(e){
                            if(e.code == 'user-not-found'){
                              Get.snackbar('로그인에러', '사용자를 찾을 수 없음');

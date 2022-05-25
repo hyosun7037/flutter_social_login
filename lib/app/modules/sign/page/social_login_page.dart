@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_in_page.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_up_terms_page.dart';
-import 'package:kakao_test/app/widget/cirble_btn.dart';
+import 'package:kakao_test/app/widget/circle_btn.dart';
 import '../controller/social_login_controller.dart';
 class SocialLoginPage extends StatelessWidget {
 const SocialLoginPage({Key? key}) : super(key: key);
@@ -26,10 +26,13 @@ const SocialLoginPage({Key? key}) : super(key: key);
               width: 250,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Colors.grey.shade200,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                  matchTextDirection: true,
+                  image: AssetImage("assets/1.jpg")),
                 shape: BoxShape.circle
               ),
-              child: Text('메인사진'),
             ),
           ),
           Expanded(
@@ -39,11 +42,11 @@ const SocialLoginPage({Key? key}) : super(key: key);
                 children: <TextSpan>[
                   TextSpan(
                     text: '나를 위한 맞춤케어 \n 마더스\n',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20, fontFamily: 'Roboto'),
                   ),
                   TextSpan(
                     text: '\n지금 가입하고 2주동안 \n 무료로 이용하세요',
-                    style: TextStyle(fontSize: 20)
+                    style: TextStyle(fontSize: 20, fontFamily: 'Roboto')
                   )
                 ]
               ),
