@@ -37,23 +37,61 @@ class MainPage extends StatelessWidget {
                       demo[index],
                     ),
                     ),
-                  Positioned(
-                    child: Row(
-                      children: [
-                      ])),
                 ],
               )),
           ),
           // circle
+          
           SliverPadding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(left:15, right:10, top: 10),
             sliver: SliverToBoxAdapter(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  Text('나를 위한 맞춤 추천', style: TextStyle(fontSize: 18, color: Colors.teal)),
-                  TextButton(onPressed: (){}, child: Text('전체보기', style: TextStyle(color: Colors.black45),))
-                ])
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('나를 위한 맞춤 추천', style: TextStyle(fontSize: 18, color: Colors.teal)),
+                    ]),
+                    Padding(
+                      padding: const EdgeInsets.only(top:8.0),
+                      child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('출산 전 준비', style: TextStyle(fontSize: 18, color: Colors.black87)),
+                        TextButton(onPressed: (){}, child: Text('전체보기', style: TextStyle(color: Colors.black45),))
+                      ]),
+                    ),
+                ],
+              )
+            )),
+            SliverToBoxAdapter(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    demo.length, 
+                    (index) => 
+                    SlidePic(image: "assets/1.jpg"),
+                  ),
+                ),
+              ),
+            ),
+            SliverPadding(
+            padding: EdgeInsets.only(left:15, right:10, top: 10),
+            sliver: SliverToBoxAdapter(
+              child: Column(
+                children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top:8.0),
+                      child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('골반 틀어짐 교정하기', style: TextStyle(fontSize: 18, color: Colors.black87)),
+                        TextButton(onPressed: (){}, child: Text('전체보기', style: TextStyle(color: Colors.black45),))
+                      ]),
+                    ),
+                ],
+              )
             )),
             SliverToBoxAdapter(
               child: SingleChildScrollView(
@@ -83,48 +121,58 @@ class SlidePic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.all(
-        Radius.circular(6)
+    return Padding(
+      padding: const EdgeInsets.only(left:10, right: 5),
+      child: InkWell(
+        borderRadius: BorderRadius.all(
+          Radius.circular(6)
+        ),
+        onTap: (){},
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.45,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(image,
+                fit: BoxFit.cover)
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text.rich(
+                  TextSpan(
+                    children:[
+                      TextSpan(
+                        text: '강사명\n',
+                        style: TextStyle(
+                          fontSize: 16, 
+                          fontWeight: FontWeight.w600, 
+                          color: Colors.black87)
+                      ),
+                      TextSpan(
+                        text: '임신 1주차 때 참고 하기 좋은 운동이에요!',
+                        style: TextStyle(
+                          fontSize: 14, 
+                          fontWeight: FontWeight.w100, 
+                          color: Colors.black87)
+                      ),
+                    ]),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(Icons.favorite, size: 15, color: Colors.red,),
+                    Text('325', style: TextStyle(fontSize: 15))
+                ],),
+              )
+            ],
+          ),
+          ),
       ),
-      onTap: (){},
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.45,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AspectRatio(
-              aspectRatio: 1.25,
-              child: Image.asset(image),
-            ),
-            Text.rich(
-              TextSpan(
-                children:[
-                  TextSpan(
-                    text: '강사명\n',
-                    style: TextStyle(
-                      fontSize: 16, 
-                      fontWeight: FontWeight.w600, 
-                      color: Colors.black87)
-                  ),
-                  TextSpan(
-                    text: '커리큘럼 내용',
-                    style: TextStyle(
-                      fontSize: 14, 
-                      fontWeight: FontWeight.w100, 
-                      color: Colors.black87)
-                  ),
-                ]),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Icon(Icons.favorite, size: 15, color: Colors.red,),
-                Text('325', style: TextStyle(fontSize: 15))
-            ],)
-          ],
-        ),
-        ),
     );
   }
 }

@@ -45,7 +45,7 @@ const SocialLoginPage({Key? key}) : super(key: key);
                     style: TextStyle(fontSize: 20, fontFamily: 'Roboto'),
                   ),
                   TextSpan(
-                    text: '\n지금 가입하고 2주동안 \n 무료로 이용하세요',
+                    text: '\n지금 가입하고 2주동안 \n 무료로 이용하세요,',
                     style: TextStyle(fontSize: 20, fontFamily: 'Roboto')
                   )
                 ]

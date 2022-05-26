@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+import 'package:kakao_test/app/modules/on_boarding/page/on_boarding_page.dart';
 import 'package:kakao_test/firebase_options.dart';
 import 'package:kakao_test/app/modules/sign/page/social_login_page.dart';
 
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner:false,
       title: 'SocialLogin',
-      home:SocialLoginPage(),
+      // home:SocialLoginPage(),
+      home:OnBoardingPage(),
     );
   }
 }
