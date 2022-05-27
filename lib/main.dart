@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner:false,
       title: 'SocialLogin',
-      // home:SocialLoginPage(),
       home:OnBoardingPage(),
     );
   }

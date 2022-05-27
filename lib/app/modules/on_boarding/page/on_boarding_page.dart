@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:kakao_test/app/modules/sign/page/social_login_page.dart';
 import 'package:kakao_test/app/widget/item_list.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -72,7 +75,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   //   ),
                   // ),
                 ],
-              )
+              ),
+              SizedBox(height: 20),
+              if(_pageIndex == 3)
+              StartBtn()
             ],
           ),
         ),
@@ -92,10 +98,10 @@ class DotIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 12,
-      height: 12,
+      width: 10,
+      height: 10,
       decoration: BoxDecoration(
-        color: isActive ? Colors.teal : Colors.grey,
+        color: isActive ? Colors.teal : Colors.black12,
         borderRadius: BorderRadius.all(Radius.circular(12))),
       );
   }
@@ -131,6 +137,26 @@ final List<Onboard> demo_data = [
     title: 'AI 기반 운동정보로\n\n임신부터\n산후조리까지\n마더스와 함께해요',
   ),
 ];
+
+
+class StartBtn extends StatelessWidget {
+  const StartBtn({
+    Key? key, 
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: MediaQuery.of(context).size.width,
+        height: 60,
+        child: CupertinoButton(
+          borderRadius: BorderRadius.circular(50),
+          color: Colors.teal,
+          onPressed: () => Get.to(SocialLoginPage()),
+          child: Text('마더스 시작하기', style: TextStyle(fontSize: 18, color: Colors.white)),
+        ),
+    );
+}}
 
 class onBoardingContent extends StatelessWidget {
   const onBoardingContent({

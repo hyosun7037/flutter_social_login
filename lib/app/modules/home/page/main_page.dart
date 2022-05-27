@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kakao_test/app/widget/item_list.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int _currentIdx = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,16 +19,40 @@ class MainPage extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title:Text('마더스', style: TextStyle(color: Colors.black87)),
-        leading: IconButton(
-          color: Colors.black54,
-          icon: Icon(Icons.menu), 
-          onPressed: (){}),
           actions: [
             IconButton(
               onPressed: (){}, 
               icon: Icon(Icons.mark_chat_unread_outlined, color: Colors.black54))
           ],
       ),
+      bottomNavigationBar: 
+      BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.teal,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        currentIndex: _currentIdx,
+        onTap: (int index){
+          setState(() {
+            _currentIdx = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            label: '홈',
+            icon: Icon(Icons.home)),
+          BottomNavigationBarItem(
+            label: '검색',
+            icon: Icon(Icons.search)),
+          BottomNavigationBarItem(
+            label: '레포트',
+            icon: Icon(Icons.dvr_outlined)),
+          BottomNavigationBarItem(
+            label: '마이페이지',
+            icon: Icon(Icons.person))
+        ],
+        ),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -40,20 +70,27 @@ class MainPage extends StatelessWidget {
                 ],
               )),
           ),
-          // circle
           
           SliverPadding(
-            padding: EdgeInsets.only(left:15, right:10, top: 10),
+            padding: EdgeInsets.only(left: 0),
             sliver: SliverToBoxAdapter(
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('나를 위한 맞춤 추천', style: TextStyle(fontSize: 18, color: Colors.teal)),
-                    ]),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 70,
+                    color: Colors.teal,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('나를 위한 맞춤 추천', style: TextStyle(fontSize: 18, color: Colors.white)),
+                        ]),
+                    ),
+                  ),
                     Padding(
-                      padding: const EdgeInsets.only(top:8.0),
+                      padding: const EdgeInsets.all(10),
                       child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -172,27 +209,6 @@ class SlidePic extends StatelessWidget {
             ],
           ),
           ),
-      ),
-    );
-  }
-}
-
-class IndicatorDot extends StatelessWidget {
-  const IndicatorDot({
-    Key? key,
-    required this.isActive
-  }) : super(key: key);
-
-  final bool isActive;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height:4,
-      width:4,
-      decoration: BoxDecoration(
-        color: isActive ? Colors.teal : Colors.black12,
-        borderRadius: BorderRadius.all(Radius.circular(12))
       ),
     );
   }

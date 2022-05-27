@@ -5,7 +5,7 @@ import 'package:kakao_test/app/modules/sign/page/sign_%08up_page.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_up_terms_page.dart';
 import 'package:kakao_test/app/widget/circle_btn.dart';
 import 'package:kakao_test/app/widget/close_app_bar.dart';
-import 'package:kakao_test/pages/main_page.dart';
+import 'package:kakao_test/app/modules/home/page/main_page.dart';
 import 'package:logger/logger.dart';
 
 class SignInPage extends StatelessWidget {
@@ -107,7 +107,7 @@ class SignInPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextBtn(text: '회원가입', textColor: Colors.black, onPressed: () => Get.to(SignUpTermsPage())),
+                        TextBtn(text: '이메일로 회원가입', textColor: Colors.black, onPressed: () => Get.to(SignUpTermsPage())),
                         const SizedBox(
                           height: 12,
                           child: VerticalDivider(
@@ -115,17 +115,9 @@ class SignInPage extends StatelessWidget {
                             color: Colors.grey,
                           ),
                         ),
-                        TextBtn(text: '아이디 찾기', textColor: Colors.black, onPressed: (){}),
-                        const SizedBox(
-                          height: 12,
-                          child: VerticalDivider(
-                            thickness: 1,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        TextBtn(text: '비밀번호 찾기', textColor: Colors.black, onPressed: (){}),
+                        TextBtn(text: '이메일/비밀번호 찾기', textColor: Colors.black, onPressed: (){}),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

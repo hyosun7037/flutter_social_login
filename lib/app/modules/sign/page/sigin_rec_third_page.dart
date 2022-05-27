@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kakao_test/app/modules/sign_confirm/sign_confirm_page.dart';
 import 'package:kakao_test/app/widget/circle_btn.dart';
 import 'package:kakao_test/app/widget/circle_tag.dart';
 import 'package:kakao_test/app/widget/close_app_bar.dart';
-import 'package:kakao_test/pages/main_page.dart';
+import 'package:kakao_test/app/modules/home/page/main_page.dart';
 
 class SignInRecThirdPage extends StatefulWidget {
   const SignInRecThirdPage({Key? key}) : super(key: key);
@@ -73,7 +74,7 @@ class _SignInRecThirdPageState extends State<SignInRecThirdPage> {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.07),
             CircleBtn(
-              onPressed: () => Get.to(MainPage()), 
+              onPressed: () => Get.to(SignConfirmPage()), 
               btnColor: Colors.teal, 
               btnTextColor: Colors.white,
               btnText: '완료하기',

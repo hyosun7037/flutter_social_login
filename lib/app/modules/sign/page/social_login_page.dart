@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kakao_test/app/modules/sign/page/sign_in_page.dart';
-import 'package:kakao_test/app/modules/sign/page/sign_up_terms_page.dart';
 import 'package:kakao_test/app/widget/circle_btn.dart';
 import '../controller/social_login_controller.dart';
 class SocialLoginPage extends StatelessWidget {
@@ -79,6 +77,17 @@ const SocialLoginPage({Key? key}) : super(key: key);
               btnColor: Colors.teal,
               btnTextColor: Colors.white,
               ),
+          SizedBox(height: 10),
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(text:'시작할 시 마더스의 '),
+                TextSpan(text: '이용약관', style: TextStyle(decoration: TextDecoration.underline)),
+                TextSpan(text:'과\n'),
+                TextSpan(text: '개인정보취급방침', style: TextStyle(decoration: TextDecoration.underline)),
+                TextSpan(text:'에 동의하게 됩니다.\n'),
+              ])
+          )
           ],
         ),
       ),
